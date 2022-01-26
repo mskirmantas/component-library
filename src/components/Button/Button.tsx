@@ -3,7 +3,7 @@ import React from "react";
 
 import "./Button.css";
 
-interface ButtonProps {
+export interface ButtonProps {
     label: string
 }
 
