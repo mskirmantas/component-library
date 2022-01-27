@@ -1,23 +1,25 @@
 import React from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
+
+import "./Button.css"
 
 export interface ButtonProps {
     label: string
 }
 
 const Button = (props: ButtonProps) => {
-    return (<StyledButton>{props.label}</StyledButton>);
+    return (<button>{props.label}</button>);
 }
 
 export default Button;
 
-const StyledButton = styled.button`
-    background-color: blueviolet;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    font-weight: 600;
-    color: beige;
-    text-transform: capitalize;
-    cursor: pointer;
-`;
+// const StyledButton = styled.button`
+//     background-color: blueviolet;
+//     border: none;
+//     border-radius: 10px;
+//     padding: 10px;
+//     font-weight: 600;
+//     color: beige;
+//     text-transform: capitalize;
+//     cursor: pointer;
+// `;
