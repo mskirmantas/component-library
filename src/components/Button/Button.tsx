@@ -1,25 +1,36 @@
 import React from "react";
-// import styled from "styled-components";
-
-import "./Button.css"
-
+import { ThemeProvider } from "styled-components";
+import theme from "../../styles/theme";
+import GlobalStyle from "../../styles/globalStyles";
+import * as S from "./Button.style";
 export interface ButtonProps {
-    label: string
+    text: string;
+    variant?: "outlined" | "contained";
+    onClick: () => void;
+    disabled?: boolean;
+    dataTestId?: string;
 }
-
-const Button = (props: ButtonProps) => {
-    return (<button>{props.label}</button>);
-}
-
+const Button: React.FC<ButtonProps> = ({
+    text,
+    variant,
+    onClick,
+    disabled,
+    dataTestId,
+}) => {
+    return (
+        <ThemeProvider theme={theme}>
+            <S.Button
+                type="button"
+                variant={variant}
+                onClick={onClick}
+                text={text}
+                disabled={disabled}
+                data-testid={dataTestId}
+            >
+                {text}
+            </S.Button>
+            <GlobalStyle />
+        </ThemeProvider>
+    );
+};
 export default Button;
-
-// const StyledButton = styled.button`
-//     background-color: blueviolet;
-//     border: none;
-//     border-radius: 10px;
-//     padding: 10px;
-//     font-weight: 600;
-//     color: beige;
-//     text-transform: capitalize;
-//     cursor: pointer;
-// `;

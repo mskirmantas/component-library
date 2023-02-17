@@ -1,21 +1,18 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import  Header  from './Header';
-
+import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import Header from "./Header";
 export default {
-  title: 'ComponentLibrary/Header',
+  title: "Shared-ui/Header",
   component: Header,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Header>;
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
-
 export const HelloWorld = Template.bind({});
 HelloWorld.args = {
-  toolName: 'Hello world',
-  advisorID: "1224424"
+  toolName: "Hello world",
+  advisorID: "C224424",
 };
-
-
+export const Withdrawals = Template.bind({});
+Withdrawals.args = {
+  toolName: "Withdrawals",
+  advisorID: "C255524",
+};

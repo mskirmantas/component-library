@@ -1,37 +1,27 @@
 import React from "react";
-// import styled from "styled-components";
-
-import "./Header.css"
-
+import * as S from "./Header.style";
+import { ThemeProvider } from "styled-components";
+import theme from "../../styles/theme";
+import GlobalStyle from "../../styles/globalStyles";
+// Props need to be exported
 export interface HeaderProps {
-    toolName: string,
-    advisorID: string
+    toolName: string;
+    advisorID: string | undefined;
 }
-
-const Header = (props: HeaderProps) => {
-    return (<header>
-        <div className="dmt-container">
-            <h1>{props.toolName}</h1>
-            <h2>Advisor ID: {props.advisorID}</h2>
-        </div>
-    </header>);
-}
-
+const Header: React.FC<HeaderProps> = ({ toolName, advisorID }) => {
+    return (
+        <ThemeProvider theme={theme}>
+            <S.Header data-testid="header">
+                <div className="container">
+                    <S.ToolName data-testid="header-tool-name">{toolName}</S.ToolName>
+                    <S.AdvisorID data-testid="header-id-type">
+                        Advisor ID:
+                        <span data-testid="header-advisor-id">{advisorID}</span>
+                    </S.AdvisorID>
+                </div>
+            </S.Header>
+            <GlobalStyle />
+        </ThemeProvider>
+    );
+};
 export default Header;
-
-// const StyledHeader = styled.header`
-//     width: 100%;
-//     height: 100px;
-//     background-color: navy;
-//     color: white;
-//     padding: 0 30px;
-   
-// `;
-
-// const Container = styled.div`
-//     max-width: 900px;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     margin: 0 auto;
-// `;
